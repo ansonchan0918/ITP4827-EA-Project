@@ -12,6 +12,19 @@
         gtag('js', new Date());
 
         gtag('config', 'G-WEVSXLKM31');
+
+        function pageNavigation(target) {
+            gtag('event', 'page_navigation', {
+                current_page_name: "home",
+                target_page_name: target
+            });
+        }
+
+        function trackSubmit() {
+            gtag('event', 'form_submit_click', {
+                form_name: 'idol_preference_form'
+            });
+        }
     </script>
     <link rel="stylesheet" href="../css/All.css">
     <title>K-pop HKFC Questionair</title> 
@@ -24,17 +37,17 @@
         <div id="nav">
             <ul id="list">
                 <li class="a">
-                    <a href="index.html">
+                    <a href="index.html" onclick="pageNavigation('home')">
                         Home
                     </a>
                 </li>
                 <li class="a">
-                    <a href="info.html">
+                    <a href="info.html" onclick="pageNavigation('information')">
                         Information
                     </a>
                 </li>
                 <li class="a">
-                    <a href="form.html">
+                    <a href="form.html" onclick="pageNavigation('questionnaire')">
                         Questionair
                     </a>
                 </li>
@@ -105,7 +118,7 @@
                 </table>
                 <br />
 
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" onclick="trackSubmit()">
                 <input type="reset" value="Reset">
             </form>
         </div>

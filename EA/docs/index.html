@@ -12,6 +12,25 @@
         gtag('js', new Date());
 
         gtag('config', 'G-WEVSXLKM31');
+
+        function pageNavigation(target) {
+            gtag('event', 'page_navigation', {
+                current_page_name: "home",
+                target_page_name: target
+            });
+        }
+
+        function video_size_adjustment(size) {
+            gtag('event', 'video_size_adjustment', {
+                size: size
+            });
+        }
+
+        function random_video_generation() {
+            gtag('event', 'random_video', {
+                action: 'click'
+            });
+        }
     </script>
     <link rel="stylesheet" href="../css/All.css">
     <title>K-pop HK Fans Club</title>
@@ -24,17 +43,17 @@
         <div id="nav">
             <ul id="list">
                 <li class="a">
-                    <a href="index.html">
+                    <a href="index.html" onclick="pageNavigation('home')">
                         Home
                     </a>
                 </li>
                 <li class="a">
-                    <a href="info.html">
+                    <a href="info.html" onclick="pageNavigation('information')">
                         Information
                     </a>
                 </li>
                 <li class="a">
-                    <a href="form.html">
+                    <a href="form.html" onclick="pageNavigation('questionnaire')">
                         Questionair
                     </a>
                 </li>
@@ -50,13 +69,13 @@
 
             </div>   
             <div id="button">
-                <button onclick="makeBig()">
+                <button onclick="video_size_adjustment('big'); makeBig()">
                     Big
                 </button>
-                <button onclick="makeSmall()">
+                <button onclick="video_size_adjustment('small'); makeSmall()">
                     Small
                 </button>
-                <button onclick="makeNormal()">
+                <button onclick="video_size_adjustment('normal'); makeNormal()">
                     Normal
                 </button>
             </div>  
@@ -71,7 +90,7 @@
                 </div>
             </div>
             <br>
-            <button id="random-button" onclick="randomVideo()">
+            <button id="random-button" onclick="random_video_generation(); randomVideo()">
                 Random
             </button>
         </div>
